@@ -28,7 +28,9 @@ def get_articles_list():
     tree = etree.HTML(page_text)
     lists= []
     link_list=tree.xpath('//div[@class="title-left"]//a/@href[contains(string(), "/articles")]')#文章连接   
+    link_list+=tree.xpath('//div[@class="title-left"]//a/@href[contains(string(), "/sectool")]')#文章连接 
     for link in link_list:
+        time.sleep(30)
         link = 'https://www.freebuf.com'+link
         print("-------正在解析文章链接-------")
         if add_url(link):
