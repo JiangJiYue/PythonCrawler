@@ -31,7 +31,7 @@ def get_md5(val):
 
 #利用redis的不能存入重复数据的特性去重
 def add_url(url):
-    red = redis.Redis(host='127.0.0.1', password='123456789', port=6379, db=0)
+    red = redis.Redis(host='127.0.0.1', password='xxxxx', port=6379, db=0)
     res = red.sadd('TEST:urlset', get_md5(url))  # 注意是 保存set的方式
     if res == 0:  # 若返回0,说明插入不成功，表示有重复
         return False
@@ -89,7 +89,7 @@ def send_qq(group_id, message):#机器人发送消息函数
 
 
 if __name__ == "__main__":
-    group_id = 642975216  # 群号
+    group_id = xxxxxx  # 群号
     while True:#死循环保证可以实时监测
         analysis(group_id)
         time.sleep(3600)#暂停1小时
